@@ -1,0 +1,29 @@
+body {
+  background-color: #333
+}
+
+h1 {
+  color: #ecf85C;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+p {
+  color: #50C3CD;
+}
+
+.yellow {
+  background-color: #ecf85C;
+}
+
+#yellow_one {
+  color: #333;
+}
+
+.blue {
+/*  background-color: #5cecF8;*/
+  background-color: #50C3CD;
+}
+
+.blue_one {
+  color: #ecf85C;
+}

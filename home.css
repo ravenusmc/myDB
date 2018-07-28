@@ -7,6 +7,14 @@
   text-align: center
 }
 
+button {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #50C3CD;
+  border-color: #50C3CD;;
+  color: #333;
+}
+
 /* CSS for entire page */
 
 main {
@@ -25,49 +33,14 @@ main {
 }
 
 /* CSS for the form*/
+
 form {
   background-color: #ecf85C;
   padding: 30px;
   border-radius: 10px;
-}
-
-.flex-outer li {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-}
-
-.flex-outer > li > label,
-.flex-outer li p {
-  flex: 1 0 120px;
-  max-width: 220px;
-}
- 
-.flex-outer > li > label + *,
-.flex-inner {
-  flex: 1 0 220px;
-}
-
-.flex-outer li button {
-  margin-left: auto;
-  padding: 8px 16px;
-  border: none;
-  background: #333;
-  color: #f2f2f2;
-  text-transform: uppercase;
-  letter-spacing: .09em;
-  border-radius: 2px;
-}
-
-.flex-inner li {
-  width: 100px;
-}
-
-
-/*form {
-  background-color: #ecf85C;
-  padding: 30px;
-  border-radius: 10px;
 }
 
 label { 
@@ -79,4 +52,4 @@ label {
 input {
   padding: 12px 20px;
   box-sizing: border-box;
-}*/
+}

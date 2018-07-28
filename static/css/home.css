@@ -13,6 +13,7 @@ button {
   background-color: #50C3CD;
   border-color: #50C3CD;;
   color: #333;
+  font-size: 20px;
 }
 
 /* CSS for entire page */
@@ -24,6 +25,10 @@ main {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+img {
+  height: 100px;
 }
 
 

@@ -1,19 +1,28 @@
 /* This file will have the CSS for the home.html file */
-
+body, html {
+    height: 100%;
+}
 
 
 /* Code for the main section */
 main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas: 
-  "one";
+  "one two two three"
+  "one two two three"
+  "one two two three";
+  height: 100%;
 }
 
 .aside_one {
   grid-area: one;
   background-color: #ecf85C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .section_one {
@@ -24,4 +33,8 @@ main {
 .aside_two {
   grid-area: three;
   background-color: #ecf85C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

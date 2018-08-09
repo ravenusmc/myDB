@@ -64,3 +64,18 @@ footer {
   padding-top: 50px;
   text-align: center;
 }
+
+
+@media only all and (max-width: 768px) {
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "one"
+    "two"
+    "three";
+    height: 100%;
+  }
+
+}

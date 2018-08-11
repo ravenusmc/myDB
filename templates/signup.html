@@ -12,34 +12,45 @@
     <section>
 
       <h1 class='center font home_title'>Join myDBee</h1>
+
       <form method='POST'>
+
+          <!-- Error messaging -->
+          {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+          <!-- End Error messaging -->
         
-        <h2 class='font center' required>Sign Up</h2>
+        <h2 class='font center'>Sign Up</h2>
 
         <div>
-          <label class='font' name='firstname'>First Name:</label><input>
+          <input placeholder='First Name' name='firstname' required>
         </div>
         <br>
         <div>
-          <label class='font' name='lastname'>Last Name:</label><input>
+          <input placeholder='Last Name' name='lastname' required>
         </div>
         <br>
         <div>
-          <label class='font' name='email'>Email:</label><input>
+          <input placeholder='Email' name='email' required>
         </div>
         <br>
         <div>
-          <label class='font' name='username'>Username:</label><input>
+          <input placeholder='Username' name='username' required>
         </div>
         <br>
         <div>
-          <label class='font' name='password1' type='password'>Password:</label><input>
+          <input placeholder='Password' name='password1' type='password' required>
         </div>
         <br>
         <div>
-          <label class='font' name='password2' type='password'>Confirm Password:</label><input>
+          <input placeholder='Confirm Password' name='password2' type='password' required>
         </div>
+
         <br>
+
         <div>
           <button>Sign Up</button>
         </div>

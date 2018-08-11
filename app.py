@@ -13,14 +13,19 @@ def landing():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
   if request.method == 'POST':
-        #Pulling data from the form on the signup page
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
-        email = request.form['email']
-        username = request.form['username']
-        password = request.form['password']
-        password2 = request.form['password2']
+      #Pulling data from the form on the signup page
+      firstname = request.form['firstname']
+      lastname = request.form['lastname']
+      email = request.form['email']
+      username = request.form['username']
+      password = request.form['password1']
+      password2 = request.form['password2']
+      if password != password2:
+            flash('Passwords Do Not Match!') 
   return render_template('signup.html')
+
+# set the secret key. keep this really secret:
+app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
 
 #This line will actually run the app.
 if __name__ == '__main__':

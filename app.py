@@ -32,8 +32,10 @@ def signup():
             #Encrypting the password
             password, hashed = db.encrypt_pass(password)
             #creating user object
-            user = Users(firstname, lastname, email, username, password, hashed)
-            print(user.firstname)
+            user = Users(firstname, lastname, email, username, hashed)
+            #Adding the user to the database
+            db.insert_user(user)
+            print('User Inserted')
 
   return render_template('signup.html')
 

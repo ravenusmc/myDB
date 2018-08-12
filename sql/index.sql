@@ -3,6 +3,9 @@
 --Creating the database
 -- CREATE DATABASE myDB;
 
+--See the table 
+DESCRIBE USERS;
+
 --Creating the users table
 CREATE TABLE users (
     user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

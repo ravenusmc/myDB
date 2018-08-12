@@ -1,7 +1,7 @@
 --This file contains the code that will be used to set up MySQL
 
 --Creating the database
-CREATE DATABASE users;
+-- CREATE DATABASE myDB;
 
 --Creating the users table
 CREATE TABLE users (

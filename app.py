@@ -1,6 +1,10 @@
 #importing outside libraries for use in the project
 from flask import Flask, session, jsonify, redirect, url_for, escape, render_template, request, flash
 
+#importing files that I created. 
+from database import * 
+from users import *
+
 #Setting up Flask
 app = Flask(__name__)
 
@@ -22,6 +26,15 @@ def signup():
       password2 = request.form['password2']
       if password != password2:
             flash('Passwords Do Not Match!') 
+      else:
+            #creating the db object to interact with the db.  
+            db = Connection()
+            #Encrypting the password
+            password, hashed = db.encrypt_pass(password)
+            #creating user object
+            user = Users(firstname, lastname, email, username, password, hashed)
+            print(user.firstname)
+
   return render_template('signup.html')
 
 # set the secret key. keep this really secret:

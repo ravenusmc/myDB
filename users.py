@@ -1,6 +1,6 @@
 #This file will set up the users class 
 
-class User():
+class Users():
 
     def __init__(self, firstname, lastname, email, username, password, hashed):
         self.firstname = firstname

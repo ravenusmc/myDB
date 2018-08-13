@@ -11,16 +11,23 @@
     <section>
 
       <h1 class='center font home_title'>Welcome to myDBee</h1>
-      <form>
+        <!-- Error messaging -->
+        {% for message in get_flashed_messages() %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+        <!-- End Error messaging -->
+      <form method="POST">
         
         <h2 class='font center' required>Login</h2>
 
         <div>
-          <label class='font'>Username:</label><input>
+          <!-- <label class='font'>Username:</label> --><input placeholder='Username' type='text' name='username'>
         </div>
         <br>
         <div>
-          <label class='font'>Password:</label><input>
+          <!-- <label class='font'>Password:</label> --><input placeholder='Password' type='password' name='password'>
         </div>
         <br>
         <div class='button_div'>

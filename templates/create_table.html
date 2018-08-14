@@ -4,7 +4,13 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_table.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/generic.css') }}">
 
+<div class="input_fields_wrap">
+    <button class="add_field_button">Add More Fields</button>
+    <div><input type="text" name="mytext[]"></div>
+</div>
+
 
 
 <script src='{{ url_for('static', filename='js/home.js') }}'></script>
+<script src='{{ url_for('static', filename='js/createTable.js') }}'></script>
 {% endblock %}

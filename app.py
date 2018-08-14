@@ -63,12 +63,14 @@ def signup():
 #This route will take the user to the home page 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    see_nav_footer = True
+    return render_template('home.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the create table page 
 @app.route('/create_table')
 def create_table():
-    return render_template('create_table.html')
+    see_nav_footer = True
+    return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 
 @app.route('/sign_out')

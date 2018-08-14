@@ -3,3 +3,12 @@
 .button_div {
   margin-top: 10px;
 }
+
+.anchor_fix {
+  color: #333;
+}
+
+.anchor_fix:hover {
+  color: #50C3CD;
+  text-decoration: none;
+}

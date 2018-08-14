@@ -65,6 +65,19 @@ def signup():
 def home():
     return render_template('home.html')
 
+#This route will take the user to the create table page 
+@app.route('/create_table')
+def create_table():
+    return render_template('create_table.html')
+
+#This route will sign out the user 
+@app.route('/sign_out')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    #Redirect to Landing page
+    return redirect(url_for('landing'))
+
 # set the secret key. keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
 

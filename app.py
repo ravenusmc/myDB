@@ -67,9 +67,18 @@ def home():
     return render_template('home.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the create table page 
-@app.route('/create_table')
+@app.route('/create_table', methods=['GET', 'POST'])
 def create_table():
     see_nav_footer = True
+    if request.method == 'POST':
+        value1 = request.form['mytext[]']
+        data_type_1 = request.form.get('data_type')
+        value2 = request.form.get('mytext2')
+        value3 = request.form.get('mytext3')
+        value4 = request.form.get('mytext4')
+        value5 = request.form.get('mytext5')
+        value6 = request.form.get('mytext6')
+        print(data_type_1)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

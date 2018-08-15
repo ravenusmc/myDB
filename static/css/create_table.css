@@ -1,0 +1,6 @@
+/* This file is for all of the css on the create_table.html page */
+
+.main_input_div {
+  display: flex;
+  flex-direction: row;
+}

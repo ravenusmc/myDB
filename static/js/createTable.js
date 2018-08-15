@@ -1,7 +1,7 @@
 //The code in this file will deal withe the JavaScript on the create_table page 
 $(document).ready(function() {
 
-    var max_fields      = 10; //maximum input boxes allowed
+    var max_fields      = 6; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     var add_button      = $(".add_field_button"); //Add button ID
     
@@ -11,11 +11,18 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div><input type="text" name="box" ' + x + '/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            content = '<div>' + 
+                        '<input type="text" name="mytext' + x + 
+            '"/><a href="#" class="remove_field">Remove</a></div>'
+            $(wrapper).append(content);
+
         }
     });
     
     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
+    
 });
+
+

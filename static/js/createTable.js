@@ -11,18 +11,28 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            content = '<div>' + 
-                        '<input type="text" name="mytext' + x + 
-            '"/><a href="#" class="remove_field">Remove</a></div>'
+            content = '<div class="main_input_div">' +
+            '<div>' + 
+            '<input type="text" name="mytext' + x + 
+            '"/></div>' + 
+            '<p>Datatype</p>' +
+            '<div>' + 
+            '<select name="data_type_' + x + '">' +
+            '<option value="int">Integer</option>' + 
+            '<option value="varchar">string</option>' +
+            '</select>' + 
+            '</div>' +
+            '<a href="#" class="remove_field">Remove</a>' +
+            '</div>'
             $(wrapper).append(content);
 
         }
     });
     
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
+    $(wrapper).on("click", ".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); 
+        $(this).parent('div').remove(); 
+        x--;
     })
     
 });
-
-

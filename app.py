@@ -74,11 +74,21 @@ def create_table():
         value1 = request.form['mytext[]']
         data_type_1 = request.form.get('data_type')
         value2 = request.form.get('mytext2')
+        data_type_2 = request.form.get('data_type_2')
         value3 = request.form.get('mytext3')
+        data_type_3 = request.form.get('data_type_3')
         value4 = request.form.get('mytext4')
+        data_type_4 = request.form.get('data_type_4')
         value5 = request.form.get('mytext5')
+        data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
+        data_type_6 = request.form.get('data_type_6')
         print(data_type_1)
+        print(data_type_2)
+        print(data_type_3)
+        print(data_type_4)
+        print(data_type_5)
+        print(data_type_6)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

@@ -4,28 +4,47 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_table.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/generic.css') }}">
 
-<form method="POST">
-  <div class="input_fields_wrap">
-      <button class="add_field_button">Add More Fields</button>
-      <p>Column Name:</p>
+<main>
 
-      <div class='main_input_div'>
+  <section class='section_left'>
 
-        <div>
-          <input type="text" name="mytext[]">
-        </div>
-        <p>Data Type:</p>
-        <div>
-          <select name="data_type">
-            <option value='int'>Integer</option>
-          </select>
-        </div>
-        
+  </section>
+
+  <section class='form_section'> 
+
+    <form method="POST">
+
+      <div class="input_fields_wrap">
+
+        <button class="add_field_button">Add More Fields</button>
+        <button>Submit</button>
+          <p>Column Name:</p>
+
+          <div class='main_input_div'>
+
+            <div>
+              <input type="text" name="mytext[]">
+            </div>
+            <p>Data Type:</p>
+            <div>
+              <select name="data_type">
+                <option value='int'>Integer</option>
+                <option value='varchar'>String</option>
+              </select>
+            </div>
+            <a href="#" class="remove_field">Remove</a>
+          </div> 
       </div>
+      
+    </form>
 
-  </div>
-  <button>Sign Up</button>
-</form>
+  </section>
+
+  <section class='section_'>
+
+  </section>
+
+</main>
 
 
 <script src='{{ url_for('static', filename='js/home.js') }}'></script>

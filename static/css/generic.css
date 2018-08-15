@@ -12,3 +12,16 @@
   color: #50C3CD;
   text-decoration: none;
 }
+
+/* CSS for the footer section */
+
+footer {
+  border-top: 3px solid #333;
+  background-color: #50C3CD;
+  height: 100px; 
+}
+
+.footer_div {
+  padding-top: 50px;
+  text-align: center;
+}

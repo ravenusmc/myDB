@@ -1,5 +1,41 @@
 /* This file is for all of the css on the create_table.html page */
 
+/* CSS for the main section */
+
+main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.section_left {
+  background-color: #ecf85C;
+}
+
+.section_right {
+  background-color: #ecf85C;
+}
+
+
+/* CSS for the form section */
+
+.form_section {
+  background-color: #50C3CD;
+}
+
+.form_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .main_input_div {
   display: flex;
   flex-direction: row;

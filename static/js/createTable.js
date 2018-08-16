@@ -15,7 +15,6 @@ $(document).ready(function() {
             '<div>' + 
             '<input type="text" name="mytext' + x + 
             '"/></div>' + 
-            '<p>Datatype</p>' +
             '<div>' + 
             '<select name="data_type_' + x + '">' +
             '<option value="int">Integer</option>' + 

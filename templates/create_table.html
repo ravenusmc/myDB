@@ -7,7 +7,15 @@
 <main>
 
   <section class='section_left'>
-
+    <h2 class='center'>How This Works:</h2>
+    <ol>
+      <li>Enter in a title for the Table.</li>
+      <li>Enter in a name, like age, for the columns-you can have 6</li>
+      <li>Select the datatype: 
+        <br>Columns holding numeric data would be an integer 
+        <br>Columns holding words would be a string</li>
+      <li>Click Submit</li>
+    </ol>
   </section>
 
   <section class='form_section'> 
@@ -16,16 +24,28 @@
 
       <div class="input_fields_wrap">
 
-        <button class="add_field_button">Add More Fields</button>
-        <button>Submit</button>
-          <p>Column Name:</p>
+        <div class='buttons'>
+          <button class="add_field_button">Add More Fields</button>
+          <button>Submit</button>
+        </div>
+
+        <br>
+
+        <div class='center'>
+          <input placeholder='Table Name' name='table_name'>
+        </div>
+
+          <div class='column_names'>
+            <p>Column Name:</p>
+            <p class='data_column'>Data Type:</p>
+          </div>
 
           <div class='main_input_div'>
 
             <div>
-              <input type="text" name="mytext[]">
+              <input placeholder='Enter Column Name' type="text" name="mytext[]">
             </div>
-            <p>Data Type:</p>
+            
             <div>
               <select name="data_type">
                 <option value='int'>Integer</option>
@@ -40,9 +60,6 @@
 
   </section>
 
-  <section class='section_'>
-
-  </section>
 
 </main>
 

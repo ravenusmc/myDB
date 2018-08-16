@@ -1,5 +1,9 @@
 /* This file will hold all of the generic css that will be used throughout the site */
 
+.center {
+  text-align: center;
+}
+
 .button_div {
   margin-top: 10px;
 }

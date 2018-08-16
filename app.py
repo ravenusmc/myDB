@@ -71,6 +71,8 @@ def home():
 def create_table():
     see_nav_footer = True
     if request.method == 'POST':
+        #Receiving all of the data from the user. 
+        table_name = request.form['table_name']
         value1 = request.form['mytext[]']
         data_type_1 = request.form.get('data_type')
         value2 = request.form.get('mytext2')
@@ -83,12 +85,6 @@ def create_table():
         data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
-        print(data_type_1)
-        print(data_type_2)
-        print(data_type_3)
-        print(data_type_4)
-        print(data_type_5)
-        print(data_type_6)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

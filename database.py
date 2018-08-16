@@ -59,3 +59,35 @@ class Connection():
                 not_found = False
                 password_no_match = True
         return flag, not_found, password_no_match
+
+    #This method will get the userID from the users table
+    def get_user_id(self, username):
+        self._SQL = """select user_id from users 
+        where username = %s"""
+        self.cursor.execute(self._SQL, (username, ))
+        row = self.cursor.fetchone()
+        user_id = row[0]
+        return user_id
+
+    #This method will enter in data into the user_tables
+    def data_into_user_tables(self, user_id, table_name):
+        self._SQL = """insert into user_tables
+          (user_id, tableName)
+          values
+          (%s, %s)"""
+        self.cursor.execute(self._SQL, (user_id, table_name))
+        self.conn.commit()
+        print('DATA INSERTED')
+
+
+
+
+
+
+
+
+
+
+
+
+

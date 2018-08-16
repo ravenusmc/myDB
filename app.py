@@ -85,6 +85,12 @@ def create_table():
         data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
+        #I'm getting the username here because it's needed for the database queries. 
+        username = session['username']
+        #Creating a db object from the Connection class
+        db = Connection()
+        user_id = db.get_user_id(username)
+        db.data_into_user_tables(user_id, table_name)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

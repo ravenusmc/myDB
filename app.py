@@ -102,6 +102,12 @@ def create_table():
         db.data_into_user_tables(user_id, table_name)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
+#This route will take the user to the page to see each table 
+@app.route('/see_table/<table>', methods=['GET'])
+def see_table(table):
+    see_nav_footer = True
+    return render_template('see_table.html', see_nav_footer = see_nav_footer)
+
 #This route will sign out the user 
 @app.route('/sign_out')
 def logout():

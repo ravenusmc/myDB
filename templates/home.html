@@ -30,14 +30,15 @@
     <aside class='aside_two'>
       <h3>Tables</h3>
 
+
+      {% for table in tables_list %}
       <div class='table_row'>
-        <i class="fas fa-search"></i>&nbsp;&nbsp;<p>Student</p>&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i>
+          <i class="fas fa-search"></i>&nbsp;&nbsp;
+            <a href="">{{ table }}</a>&nbsp;&nbsp;
+          <i class="fas fa-pencil-alt"></i>
       </div>
-      
-      <div class='table_row'>
-        <i class="fas fa-search"></i>&nbsp;&nbsp;<p>Classes</p>&nbsp;&nbsp;<i class="fas fa-pencil-alt"></i>
-      </div>
-      
+      {% endfor %}
+
     </aside>
 
   </main>

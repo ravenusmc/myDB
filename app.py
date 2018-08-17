@@ -64,7 +64,14 @@ def signup():
 @app.route('/home')
 def home():
     see_nav_footer = True
-    return render_template('home.html', see_nav_footer = see_nav_footer)
+    #Creating a db object from the Connection class
+    db = Connection()
+    username = session['username']
+    #Getting the user_id based off the username
+    user_id = db.get_user_id(username)
+    tables = db.get_user_tables(user_id)
+    tables_list = db.get_tables_array(tables)
+    return render_template('home.html', see_nav_footer = see_nav_footer, tables_list = tables_list)
 
 #This route will take the user to the create table page 
 @app.route('/create_table', methods=['GET', 'POST'])
@@ -89,7 +96,9 @@ def create_table():
         username = session['username']
         #Creating a db object from the Connection class
         db = Connection()
+        #Getting the user_id based off the username
         user_id = db.get_user_id(username)
+        #Inserting the data into the user_tables table 
         db.data_into_user_tables(user_id, table_name)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 

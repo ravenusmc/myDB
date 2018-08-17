@@ -79,6 +79,28 @@ class Connection():
         self.conn.commit()
         print('DATA INSERTED')
 
+    #This method will get the tables that apply to each user 
+    def get_user_tables(self, user_id):
+        self._SQL = """Select tableName from user_tables
+        where user_id = %s"""
+        self.cursor.execute(self._SQL, (user_id, ))
+        rows = self.cursor.fetchall()
+        return rows 
+
+    #This method will get the only the table names from the result 
+    #returned from the get_user_tables method
+    def get_tables_array(self, tables):
+        print(len(tables))
+        print(tables[1][0])
+        tables_list = []
+        list_length = len(tables)
+        count = 0
+        while count < list_length:
+            table_name = tables[count][0]
+            tables_list.append(table_name)
+            count += 1
+        return tables_list
+
 
 
 

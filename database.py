@@ -100,15 +100,40 @@ class Connection():
             count += 1
         return tables_list
 
+    #This method will create a new table with a single column
+    def single_column_create(self, table_name, value1, data_type_1):
+        sql = '''CREATE TABLE ''' + table_name + ''' (
+            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL' ''' )'''
+        print(sql)
+        self.cursor.execute(sql)
+
+    def double_column_create(self, table_name, value1, data_type_1, value2, data_type_2):
+        sql = '''CREATE TABLE ''' + table_name + ''' (
+            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
+            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL' ''' ) '''
+        self.cursor.execute(sql)
+
+    def triple_column_create(self, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3):
+        sql = '''CREATE TABLE ''' + table_name + ''' (
+            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
+            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL,' + '''
+            ''' + value3 + ' ' + data_type_3 + ' ' + 'NOT NULL' + '''
+        ) 
+       '''
+        self.cursor.execute(sql)
+
     #This method will create a new table 
     def create_a_table(self, user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4, data_type_4, value5, data_type_5, value6, data_type_6):
         sql = '''CREATE TABLE ''' + table_name + ''' (
             item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
             ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
-            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL' + '''
+            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL,' + '''
+            ''' + value3 + ' ' + data_type_3 + ' ' + 'NOT NULL' + '''
         ) 
        '''
-        print(sql)
         self.cursor.execute(sql)
 
 

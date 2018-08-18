@@ -33,4 +33,3 @@ CREATE TABLE students (
 
 
 drop table users;
-ste

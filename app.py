@@ -4,6 +4,7 @@ from flask import Flask, session, jsonify, redirect, url_for, escape, render_tem
 #importing files that I created. 
 from database import * 
 from users import *
+from check_values import *
 
 #Setting up Flask
 app = Flask(__name__)
@@ -78,6 +79,7 @@ def home():
 def create_table():
     see_nav_footer = True
     if request.method == 'POST':
+        check = Check_Value()
         #Receiving all of the data from the user. 
         table_name = request.form['table_name']
         value1 = request.form['mytext[]']
@@ -92,19 +94,21 @@ def create_table():
         data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
+        check.check_value(table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
+            data_type_4)
+            
+
         #I'm getting the username here because it's needed for the database queries. 
         username = session['username']
         #Creating a db object from the Connection class
         db = Connection()
         #Getting the user_id based off the username
-        user_id = db.get_user_id(username)
+        #user_id = db.get_user_id(username)
         #Inserting the data into the user_tables table 
-        db.data_into_user_tables(user_id, table_name)
-        print(data_type_1)
-        print(data_type_2)
+        #db.data_into_user_tables(user_id, table_name)
         #Creating the table 
-        db.create_a_table(user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
-            value4, data_type_4, value5, data_type_5, value6, data_type_6)
+        #db.create_a_table(user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
+            #value4, data_type_4, value5, data_type_5, value6, data_type_6)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to see each table 

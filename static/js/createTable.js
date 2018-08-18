@@ -17,6 +17,7 @@ $(document).ready(function() {
             '"/></div>' + 
             '<div>' + 
             '<select name="data_type_' + x + '">' +
+            '<option value=" " selected>Nothing</option>' +
             '<option value="int">Integer</option>' + 
             '<option value="varchar(30)">string</option>' +
             '</select>' + 

@@ -25,6 +25,12 @@ CREATE TABLE user_tables (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE students (
+            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            firstname varchar(30) NOT NULL,
+            lastname varchar(30) NOT NULL,
+  ) 
+
 
 drop table users;
 ste

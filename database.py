@@ -77,7 +77,6 @@ class Connection():
           (%s, %s)"""
         self.cursor.execute(self._SQL, (user_id, table_name))
         self.conn.commit()
-        print('DATA INSERTED')
 
     #This method will get the tables that apply to each user 
     def get_user_tables(self, user_id):
@@ -100,6 +99,17 @@ class Connection():
             tables_list.append(table_name)
             count += 1
         return tables_list
+
+    #This method will create a new table 
+    def create_a_table(self, user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4, data_type_4, value5, data_type_5, value6, data_type_6):
+        sql = '''CREATE TABLE ''' + table_name + ''' (
+            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
+            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL' + '''
+        ) 
+       '''
+        print(sql)
+        self.cursor.execute(sql)
 
 
 

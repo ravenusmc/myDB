@@ -100,6 +100,11 @@ def create_table():
         user_id = db.get_user_id(username)
         #Inserting the data into the user_tables table 
         db.data_into_user_tables(user_id, table_name)
+        print(data_type_1)
+        print(data_type_2)
+        #Creating the table 
+        db.create_a_table(user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
+            value4, data_type_4, value5, data_type_5, value6, data_type_6)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to see each table 

@@ -18,7 +18,7 @@ $(document).ready(function() {
             '<div>' + 
             '<select name="data_type_' + x + '">' +
             '<option value="int">Integer</option>' + 
-            '<option value="varchar">string</option>' +
+            '<option value="varchar(30)">string</option>' +
             '</select>' + 
             '</div>' +
             '<a href="#" class="remove_field">Remove</a>' +

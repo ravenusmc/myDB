@@ -9,9 +9,15 @@ from check_values import *
 #Setting up Flask
 app = Flask(__name__)
 
-#This route takes the user to the home page
-@app.route('/', methods=['GET', 'POST'])
+#This route takes the user to the landing page 
+@app.route('/')
 def landing():
+    return render_template('landing.html')
+
+
+#This route takes the user to the home page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
     if request.method == 'POST':
         #Recieving the information from the user.
         username = request.form['username']
@@ -33,7 +39,7 @@ def landing():
                 flash('Username not found, maybe sign up!')
             elif password_no_match:
                 flash('Password does not match! Maybe sign up!')
-    return render_template('index.html')
+    return render_template('login.html')
 
 #This route takes the user to the sign up page 
 @app.route('/signup', methods=['GET', 'POST'])

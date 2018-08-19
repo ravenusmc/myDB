@@ -1,0 +1,37 @@
+/* The CSS in this file is for the landing.html page */
+
+body, html {
+    height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../static/img/database.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%; 
+}
+
+main > div {
+  color: #fff;
+  border: 3px dashed #333;
+  padding: 15px;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 15px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+a:hover {
+  color: #ecf85C;
+  text-decoration: none;
+}
+

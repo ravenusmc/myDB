@@ -8,7 +8,7 @@ import mysql.connector
 
 class Connection():
 
-    def __init__(self):
+    def __init__(self, dbname):
         self.conn = mysql.connector.connect(user='ted',
                             password='pass',
                             host='localhost',

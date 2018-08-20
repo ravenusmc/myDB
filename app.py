@@ -5,6 +5,7 @@ from flask import Flask, session, jsonify, redirect, url_for, escape, render_tem
 from database import * 
 from users import *
 from check_values import *
+from tables import *
 
 #Setting up Flask
 app = Flask(__name__)
@@ -57,13 +58,18 @@ def signup():
       else:
             #creating the db object to interact with the db.  
             db = Connection()
+            table = Tables()
             #Encrypting the password
             password, hashed = db.encrypt_pass(password)
             #creating user object
             user = Users(firstname, lastname, email, username, hashed)
             #Adding the user to the database
             db.insert_user(user)
-            print('User Inserted')
+            #Getting the user user_id
+            user_id = db.get_user_id(username)
+            database_name = username + str(user_id)
+            table.create_database(database_name)
+            print('table created')
 
   return render_template('signup.html')
 
@@ -71,7 +77,7 @@ def signup():
 @app.route('/home')
 def home():
     see_nav_footer = True
-    #Creating a db object from the Connection class
+    #creating the db and tables object to interact with the db.  
     db = Connection()
     username = session['username']
     #Getting the user_id based off the username

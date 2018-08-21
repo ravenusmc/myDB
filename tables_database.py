@@ -24,7 +24,7 @@ class Tables_DataBases():
     #This method will create a new table with a double column
     def double_column_create(self, table_name, value1, data_type_1, value2, data_type_2):
         sql = '''CREATE TABLE ''' + table_name + ''' (
-            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
             ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
             ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL' ''' ) '''
         self.cursor.execute(sql)
@@ -32,7 +32,7 @@ class Tables_DataBases():
     #This method will create a new table with a triple column
     def triple_column_create(self, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3):
         sql = '''CREATE TABLE ''' + table_name + ''' (
-            item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
             ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
             ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL,' + '''
             ''' + value3 + ' ' + data_type_3 + ' ' + 'NOT NULL' + '''

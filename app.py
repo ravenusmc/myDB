@@ -136,10 +136,28 @@ def create_table():
 @app.route('/see_table/<table>', methods=['GET'])
 def see_table(table):
     see_nav_footer = True
-    print('#########################')
-    print(table)
-    print('#########################')
+    #Creating object
+    db = Connection()
+
+    #Getting the username of the user 
+    username = session['username']
+    #Getting the user_id based off the username
+    user_id = db.get_user_id(username)
+    #Creating the unique ID that will represent each users database 
+    database_name = username + str(user_id)
+
+    #I need to get the table associated with each individual database 
+    #I then need to display all information for the table 
+
+    # I will need to create an add data page first. 
+
     return render_template('see_table.html', see_nav_footer = see_nav_footer)
+
+#This route will take the user to the page to add information to a specific table 
+@app.route('/add_info_table/<table>', methods=['GET'])
+def add_information(table):
+    see_nav_footer = True
+    return render_template('add_info.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 
 @app.route('/sign_out')

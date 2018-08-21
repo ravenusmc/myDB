@@ -6,6 +6,7 @@ from database import *
 from users import *
 from check_values import *
 from tables import *
+from tables_database import * 
 
 #Setting up Flask
 app = Flask(__name__)
@@ -77,11 +78,15 @@ def signup():
 @app.route('/home')
 def home():
     see_nav_footer = True
-    #creating the db and tables object to interact with the db.  
+    #creating the objects to interact with the db.  
     db = Connection()
+    #Getting the username for each user 
     username = session['username']
     #Getting the user_id based off the username
     user_id = db.get_user_id(username)
+    #Creating the unique ID that will represent each users database 
+    database_name = username + str(user_id)
+    user_database = Tables_DataBases(database_name)
     tables = db.get_user_tables(user_id)
     tables_list = db.get_tables_array(tables)
     return render_template('home.html', see_nav_footer = see_nav_footer, tables_list = tables_list)
@@ -91,7 +96,20 @@ def home():
 def create_table():
     see_nav_footer = True
     if request.method == 'POST':
+        #Creating objects 
         check = Check_Value()
+        db = Connection()
+
+        #Getting the username of the user 
+        username = session['username']
+        #Getting the user_id based off the username
+        user_id = db.get_user_id(username)
+        #Creating the unique ID that will represent each users database 
+        database_name = username + str(user_id)
+
+        #Creating the user database object 
+        user_database = Tables_DataBases(database_name)
+
         #Receiving all of the data from the user. 
         table_name = request.form['table_name']
         value1 = request.form['mytext[]']
@@ -106,27 +124,21 @@ def create_table():
         data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
-        check.check_value(table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
+        #This line will help to check for validation
+        check.check_value(user_database, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
             data_type_4)
             
-
-        #I'm getting the username here because it's needed for the database queries. 
-        username = session['username']
-        #Creating a db object from the Connection class
-        db = Connection()
-        #Getting the user_id based off the username
-        #user_id = db.get_user_id(username)
         #Inserting the data into the user_tables table 
-        #db.data_into_user_tables(user_id, table_name)
-        #Creating the table 
-        #db.create_a_table(user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
-            #value4, data_type_4, value5, data_type_5, value6, data_type_6)
+        db.data_into_user_tables(user_id, table_name)
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to see each table 
 @app.route('/see_table/<table>', methods=['GET'])
 def see_table(table):
     see_nav_footer = True
+    print('#########################')
+    print(table)
+    print('#########################')
     return render_template('see_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

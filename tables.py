@@ -1,4 +1,4 @@
-#This file will hold all of the code to handle each users database and tables 
+#This file only create the database name for each user. 
 
 #importing needed files 
 import mysql.connector

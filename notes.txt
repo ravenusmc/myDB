@@ -1,0 +1,3 @@
+-Do I need to constantly be creating a user_database object that contains each users connection to the database 
+or can I just do that once? 
+

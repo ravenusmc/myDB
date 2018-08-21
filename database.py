@@ -8,7 +8,7 @@ import mysql.connector
 
 class Connection():
 
-    def __init__(self, dbname):
+    def __init__(self):
         self.conn = mysql.connector.connect(user='ted',
                             password='pass',
                             host='localhost',
@@ -89,8 +89,6 @@ class Connection():
     #This method will get the only the table names from the result 
     #returned from the get_user_tables method
     def get_tables_array(self, tables):
-        print(len(tables))
-        print(tables[1][0])
         tables_list = []
         list_length = len(tables)
         count = 0

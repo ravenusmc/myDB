@@ -154,10 +154,12 @@ def see_table(table):
     return render_template('see_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to add information to a specific table 
-@app.route('/add_info_table/<table>', methods=['GET'])
+@app.route('/see_table/<table>', methods=['POST'])
 def add_information(table):
     see_nav_footer = True
-    return render_template('add_info.html', see_nav_footer = see_nav_footer)
+    firstname = request.form['firstname']
+    print(firstname)
+    return render_template('see_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 
 @app.route('/sign_out')

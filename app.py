@@ -145,6 +145,9 @@ def see_table(table):
     user_id = db.get_user_id(username)
     #Creating the unique ID that will represent each users database 
     database_name = username + str(user_id)
+    #Creating the user database object 
+    user_database = Tables_DataBases(database_name)
+    user_database.get_table_column_names(table)
 
     #I need to get the table associated with each individual database 
     #I then need to display all information for the table 

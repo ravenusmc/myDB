@@ -82,3 +82,30 @@ class Tables_DataBases():
        '''
         self.cursor.execute(sql)
 
+    #This method will get the table columns
+    def get_table_column_names(self, table_name):
+        sql = '''desc ''' + table_name
+        test = self.cursor.execute(sql)
+        column_names = self.cursor.fetchall()
+        return column_names
+
+    #This method will sort out the specific names from the column_names list
+    def get_specific_column_names(self, column_names):
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

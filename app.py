@@ -126,7 +126,7 @@ def create_table():
         data_type_6 = request.form.get('data_type_6')
         #This line will help to check for validation
         check.check_value(user_database, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
-            data_type_4)
+            data_type_4, value5, data_type_5)
             
         #Inserting the data into the user_tables table 
         db.data_into_user_tables(user_id, table_name)
@@ -157,8 +157,16 @@ def see_table(table):
 @app.route('/see_table/<table>', methods=['POST'])
 def add_information(table):
     see_nav_footer = True
-    firstname = request.form['firstname']
-    print(firstname)
+    #Creating object to connect to database
+    db = Connection()
+
+    #Getting the username of the user 
+    username = session['username']
+    #Getting the user_id based off the username
+    user_id = db.get_user_id(username)
+    #Creating the unique ID that will represent each users database 
+    database_name = username + str(user_id)
+
     return render_template('see_table.html', see_nav_footer = see_nav_footer)
 
 #This route will sign out the user 

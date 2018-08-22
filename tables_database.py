@@ -40,6 +40,19 @@ class Tables_DataBases():
        '''
         self.cursor.execute(sql)
 
+    def four_column_create(self, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
+        value4, data_type_4):
+        sql = '''CREATE TABLE ''' + table_name + ''' (
+            id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL,' + '''
+            ''' + value2 + ' ' + data_type_2 + ' ' + 'NOT NULL,' + '''
+            ''' + value3 + ' ' + data_type_3 + ' ' + 'NOT NULL,' + '''
+            ''' + value4 + ' ' + data_type_4 + ' ' + 'NOT NULL' + '''
+        ) 
+       '''
+        self.cursor.execute(sql)
+
+
     #This method will create a new table 
     # def create_a_table(self, user_id, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4, data_type_4, value5, data_type_5, value6, data_type_6):
     #     sql = '''CREATE TABLE ''' + table_name + ''' (

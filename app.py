@@ -147,14 +147,16 @@ def see_table(table):
     database_name = username + str(user_id)
     #Creating the user database object 
     user_database = Tables_DataBases(database_name)
-    user_database.get_table_column_names(table)
+    #Getting the column names for the specific table
+    column_names = user_database.get_table_column_names(table)
+    only_names_list = user_database.get_specific_column_names(column_names)
 
     #I need to get the table associated with each individual database 
     #I then need to display all information for the table 
 
     # I will need to create an add data page first. 
 
-    return render_template('see_table.html', see_nav_footer = see_nav_footer)
+    return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_list)
 
 #This route will take the user to the page to add information to a specific table 
 @app.route('/see_table/<table>', methods=['POST'])
@@ -169,6 +171,8 @@ def add_information(table):
     user_id = db.get_user_id(username)
     #Creating the unique ID that will represent each users database 
     database_name = username + str(user_id)
+
+    #
 
     return render_template('see_table.html', see_nav_footer = see_nav_footer)
 

@@ -91,7 +91,18 @@ class Tables_DataBases():
 
     #This method will sort out the specific names from the column_names list
     def get_specific_column_names(self, column_names):
-        
+        #I start the counter at 1 because I don't need the id name-that's auto generated 
+        #by MySQL.
+        count = 1
+        length_of_column_names_list = len(column_names)
+        #Because the column_names list has a whole bunch of attributes in it I only 
+        #need the column names so this array will hold that. 
+        only_names_list = []
+        while count < length_of_column_names_list:
+            column_name = column_names[count][0]
+            only_names_list.append(column_name)
+            count += 1
+        return only_names_list
 
 
 

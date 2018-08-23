@@ -100,25 +100,34 @@ class Tables_DataBases():
         only_names_dict = {}
         while count < length_of_column_names_list:
             column_name = column_names[count][0]
-            only_names_list[column_name] = count
+            only_names_dict[column_name] = count
             count += 1
         return only_names_dict
 
-    #This method will add a new entry to the table. 
-    def add_table_row(self, table, value_1, value_2, value_3, value_4, value_5, value_6):
-        self._SQL = """inser into """ + table + """
-        (firstname, lastname, email, username, password)"""
+    def get_specific_column_names_list(self, column_names):
+        count = 0
+        length_of_column_names_list = len(column_names)
+        #Because the column_names list has a whole bunch of attributes in it I only 
+        #need the column names so this dictionary will hold that. 
+        only_names_list = []
+        while count < length_of_column_names_list:
+            column_name = column_names[count][0]
+            only_names_list.append(column_name)
+            count += 1
+        return only_names_list
 
+    #This method will add a new entry to the table. 
+    def add_table_row_six(self, column_names, table, value_1, value_2, value_3, value_4, value_5, value_6):
+        print(column_names)
+        sql = '''insert into ''' + table + ''' ( 
+           ''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''' 
+           ''' + ',' + column_names[4] + ',' + column_names[5] + ',' + column_names[6] + ''')
+           values (%s, %s, %s, %s, %s, %s) '''
+        print(sql)
+        self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5, value_6))
         self.conn.commit()
 
 
-    # def insert_user(self, user):
-    #     self._SQL = """insert into users
-    #       (firstname, lastname, email, username, password)
-    #       values
-    #       (%s, %s, %s, %s, %s)"""
-    #     self.cursor.execute(self._SQL, (user.firstname, user.lastname, user.email, user.username, user.password_hashed))
-    #     self.conn.commit()
 
 
 

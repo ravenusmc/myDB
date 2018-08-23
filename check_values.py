@@ -24,5 +24,7 @@ class Check_Value():
                 value4, data_type_4, value5, data_type_5, value6, data_type_6)
 
     def check_values_add_to_table(self, user_database, table, value_1, value_2, value_3, value_4, value_5, value_6):
-        if value6: 
-            
+        if value_6: 
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_table_row_six(column_names, table, value_1, value_2, value_3, value_4, value_5, value_6)

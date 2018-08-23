@@ -7,8 +7,8 @@
 <h1>Test</h1>
 
 <form method='POST'>
-  {% for name in names %}
-    <input placeholder={{ name }} name={{name}} required>
+  {% for key, value in names.items() %}
+    <input placeholder={{ key}} name={{value}} required>
   {% endfor %}
   <button>Submit</button>
 </form>

@@ -164,6 +164,7 @@ def add_information(table):
     see_nav_footer = True
     #Creating object to connect to database
     db = Connection()
+    check = Check_Value()
 
     #Getting the username of the user 
     username = session['username']
@@ -171,10 +172,27 @@ def add_information(table):
     user_id = db.get_user_id(username)
     #Creating the unique ID that will represent each users database 
     database_name = username + str(user_id)
+    #Creating the user database object 
+    user_database = Tables_DataBases(database_name)
+    #Getting the column names for the specific table
+    column_names = user_database.get_table_column_names(table)
+    only_names_dict = user_database.get_specific_column_names(column_names)
 
-    #
+    #Getting user entries 
+    value_1 = request.form.get('1')
+    value_2 = request.form.get('2')
+    value_3 = request.form.get('3')
+    value_4 = request.form.get('4')
+    value_5 = request.form.get('5')
+    value_6 = request.form.get('6')
 
-    return render_template('see_table.html', see_nav_footer = see_nav_footer)
+    #Adding the data to the right table based on number of columns 
+    check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
+
+    #Adding the data to the database. 
+    #user_database.add_table_row(table, value_1, value_2, value_3, value_4, value_5, value_6)
+
+    return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
 
 #This route will sign out the user 
 @app.route('/sign_out')

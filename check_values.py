@@ -22,3 +22,7 @@ class Check_Value():
         if value6: 
             user_database.six_column_create(table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3,
                 value4, data_type_4, value5, data_type_5, value6, data_type_6)
+
+    def check_values_add_to_table(self, user_database, table, value_1, value_2, value_3, value_4, value_5, value_6):
+        if value6: 
+            

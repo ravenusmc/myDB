@@ -33,3 +33,7 @@ CREATE TABLE students (
 
 
 drop table users;
+
+insert into boy 
+        (firstname) 
+           values ('Mike') 

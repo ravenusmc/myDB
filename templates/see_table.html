@@ -1,17 +1,33 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/see_table.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/generic.css') }}">
 
 
-<h1>Test</h1>
+<main role='main'>
 
-<form method='POST'>
-  {% for key, value in names.items() %}
-    <input placeholder={{ key}} name={{value}} required>
-  {% endfor %}
-  <button>Submit</button>
-</form>
+  <section id='add_form_section'>
+
+    <h2 class='center'>Add to Table</h2>
+    <form method='POST' id='add_form'>
+      {% for key, value in names.items() %}
+        <input placeholder={{ key}} name={{value}} required>
+      {% endfor %}
+      <button>Submit</button>
+    </form>
+
+  </section>
+
+  <section>
+
+    <h2 class='center'>The Table</h2>
+
+
+  </section>
+
+</main>
+
 
 
 {% endblock %}

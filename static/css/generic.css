@@ -17,6 +17,16 @@
   text-decoration: none;
 }
 
+button {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #50C3CD;
+  border-color: #50C3CD;;
+  color: #333;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 /* CSS for the footer section */
 
 footer {

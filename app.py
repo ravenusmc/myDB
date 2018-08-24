@@ -125,8 +125,6 @@ def create_table():
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
 
-        print(value2)
-
         #This line will check for validation
         check.check_value(user_database, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
             data_type_4, value5, data_type_5, value6, data_type_6)
@@ -136,36 +134,10 @@ def create_table():
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to see each table 
-@app.route('/see_table/<table>', methods=['GET'])
+@app.route('/see_table/<table>', methods=['GET', 'POST'])
 def see_table(table):
     see_nav_footer = True
     #Creating object
-    db = Connection()
-
-    #Getting the username of the user 
-    username = session['username']
-    #Getting the user_id based off the username
-    user_id = db.get_user_id(username)
-    #Creating the unique ID that will represent each users database 
-    database_name = username + str(user_id)
-    #Creating the user database object 
-    user_database = Tables_DataBases(database_name)
-    #Getting the column names for the specific table
-    column_names = user_database.get_table_column_names(table)
-    only_names_list = user_database.get_specific_column_names(column_names)
-
-    #I need to get the table associated with each individual database 
-    #I then need to display all information for the table 
-
-    # I will need to create an add data page first. 
-
-    return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_list)
-
-#This route will take the user to the page to add information to a specific table 
-@app.route('/see_table/<table>', methods=['POST'])
-def add_information(table):
-    see_nav_footer = True
-    #Creating object to connect to database
     db = Connection()
     check = Check_Value()
 
@@ -181,21 +153,58 @@ def add_information(table):
     column_names = user_database.get_table_column_names(table)
     only_names_dict = user_database.get_specific_column_names(column_names)
 
-    #Getting user entries 
-    value_1 = request.form.get('1')
-    value_2 = request.form.get('2')
-    value_3 = request.form.get('3')
-    value_4 = request.form.get('4')
-    value_5 = request.form.get('5')
-    value_6 = request.form.get('6')
+    if request.method == 'POST':
+        #Getting user entries 
+        value_1 = request.form.get('1')
+        value_2 = request.form.get('2')
+        value_3 = request.form.get('3')
+        value_4 = request.form.get('4')
+        value_5 = request.form.get('5')
+        value_6 = request.form.get('6')
 
-    #Adding the data to the right table based on number of columns 
-    check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
+        print(value_2)
 
-    #Adding the data to the database. 
-    #user_database.add_table_row(table, value_1, value_2, value_3, value_4, value_5, value_6)
+        #Adding the data to the right table based on number of columns 
+        check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
+
+
 
     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
+
+#This route will take the user to the page to add information to a specific table 
+# @app.route('/see_table/<table>', methods=['POST'])
+# def add_information(table):
+#     see_nav_footer = True
+#     #Creating object to connect to database
+#     db = Connection()
+#     check = Check_Value()
+
+    #Getting the username of the user 
+    # username = session['username']
+    # #Getting the user_id based off the username
+    # user_id = db.get_user_id(username)
+    # #Creating the unique ID that will represent each users database 
+    # database_name = username + str(user_id)
+    # #Creating the user database object 
+    # user_database = Tables_DataBases(database_name)
+    # #Getting the column names for the specific table
+    # column_names = user_database.get_table_column_names(table)
+    # only_names_dict = user_database.get_specific_column_names(column_names)
+
+#     #Getting user entries 
+#     value_1 = request.form.get('1')
+#     value_2 = request.form.get('2')
+#     value_3 = request.form.get('3')
+#     value_4 = request.form.get('4')
+#     value_5 = request.form.get('5')
+#     value_6 = request.form.get('6')
+
+#     #Adding the data to the right table based on number of columns 
+#     #check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
+
+#     #Adding the data to the database. 
+#     #user_database.add_table_row(table, value_1, value_2, value_3, value_4, value_5, value_6)
+#     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
 
 #This route will sign out the user 
 @app.route('/sign_out')

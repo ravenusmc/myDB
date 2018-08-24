@@ -24,7 +24,16 @@ class Check_Value():
                 value4, data_type_4, value5, data_type_5, value6, data_type_6)
 
     def check_values_add_to_table(self, user_database, table, value_1, value_2, value_3, value_4, value_5, value_6):
-        if value_6: 
+        if value_2 == None:
             full_column_names = user_database.get_table_column_names(table)
             column_names = user_database.get_specific_column_names_list(full_column_names)
-            user_database.add_table_row_six(column_names, table, value_1, value_2, value_3, value_4, value_5, value_6)
+            user_database.add_one_row_to_table(column_names, table, value_1)
+        elif value_3 == None: 
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_two_row_to_table(column_names, table, value_1, value_2)
+
+        # if value_6: 
+        #     full_column_names = user_database.get_table_column_names(table)
+        #     column_names = user_database.get_specific_column_names_list(full_column_names)
+        #     user_database.add_six_row_to_table(column_names, table, value_1, value_2, value_3, value_4, value_5, value_6)

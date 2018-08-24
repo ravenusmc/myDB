@@ -115,16 +115,30 @@ class Tables_DataBases():
             count += 1
         return only_names_list
 
-    #This method will add a new entry to the table. 
-    def add_table_row_six(self, column_names, table, value_1, value_2, value_3, value_4, value_5, value_6):
+    ##### The below methods will add new entry's to a table ###
+
+    def add_one_row_to_table(self, column_names, table, value_1):
+        sql = '''insert into ''' + table + ''' 
+        (''' + column_names[1] + ''') 
+           values (%s) '''
+        self.cursor.execute(sql, (value_1, ))
+        self.conn.commit()
+
+    def add_two_row_to_table(self, column_names, table, value_1, value_2):
+        sql = '''insert into ''' + table + ''' 
+        (''' + column_names[1] + ',' + column_names[2] + ''') 
+           values (%s, %s) '''
+        self.cursor.execute(sql, (value_1, value_2))
+        self.conn.commit()
+
+    def add_six_row_to_table(self, column_names, table, value_1, value_2, value_3, value_4, value_5, value_6):
         sql = '''insert into ''' + table + ''' ( 
            ''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''' 
            ''' + ',' + column_names[4] + ',' + column_names[5] + ',' + column_names[6] + ''')
            values (%s, %s, %s, %s, %s, %s) '''
+        print(sql)
         self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5, value_6))
         self.conn.commit()
-
-
 
 
 

@@ -18,7 +18,6 @@ class Tables_DataBases():
         sql = '''CREATE TABLE ''' + table_name + ''' (
             id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
             ''' + value1 + ' ' + data_type_1 + ' ' + 'NOT NULL' ''' )'''
-        print(sql)
         self.cursor.execute(sql)
 
     #This method will create a new table with a double column
@@ -118,12 +117,10 @@ class Tables_DataBases():
 
     #This method will add a new entry to the table. 
     def add_table_row_six(self, column_names, table, value_1, value_2, value_3, value_4, value_5, value_6):
-        print(column_names)
         sql = '''insert into ''' + table + ''' ( 
            ''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''' 
            ''' + ',' + column_names[4] + ',' + column_names[5] + ',' + column_names[6] + ''')
            values (%s, %s, %s, %s, %s, %s) '''
-        print(sql)
         self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5, value_6))
         self.conn.commit()
 

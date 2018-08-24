@@ -124,7 +124,10 @@ def create_table():
         data_type_5 = request.form.get('data_type_5')
         value6 = request.form.get('mytext6')
         data_type_6 = request.form.get('data_type_6')
-        #This line will help to check for validation
+
+        print(value2)
+
+        #This line will check for validation
         check.check_value(user_database, table_name, value1, data_type_1, value2, data_type_2, value3, data_type_3, value4,
             data_type_4, value5, data_type_5, value6, data_type_6)
             

@@ -131,6 +131,20 @@ class Tables_DataBases():
         self.cursor.execute(sql, (value_1, value_2))
         self.conn.commit()
 
+    def add_three_row_to_table(self, column_names, table, value_1, value_2, value_3):
+        sql = '''insert into ''' + table + ''' 
+        (''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''') 
+           values (%s, %s, %s) '''
+        self.cursor.execute(sql, (value_1, value_2, value_3))
+        self.conn.commit()
+
+    def add_four_row_to_table(self, column_names, table, value_1, value_2, value_3, value_4):
+        sql = '''insert into ''' + table + ''' 
+        (''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ',' + column_names[4] + ''') 
+           values (%s, %s, %s, %s) '''
+        self.cursor.execute(sql, (value_1, value_2, value_3, value_4))
+        self.conn.commit()
+
     def add_six_row_to_table(self, column_names, table, value_1, value_2, value_3, value_4, value_5, value_6):
         sql = '''insert into ''' + table + ''' ( 
            ''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''' 

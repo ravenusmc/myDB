@@ -32,6 +32,14 @@ class Check_Value():
             full_column_names = user_database.get_table_column_names(table)
             column_names = user_database.get_specific_column_names_list(full_column_names)
             user_database.add_two_row_to_table(column_names, table, value_1, value_2)
+        elif value_4 == None: 
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_three_row_to_table(column_names, table, value_1, value_2, value_3)
+        elif value_5 == None: 
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_four_row_to_table(column_names, table, value_1, value_2, value_3, value_4)
 
         # if value_6: 
         #     full_column_names = user_database.get_table_column_names(table)

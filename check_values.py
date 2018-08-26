@@ -40,8 +40,11 @@ class Check_Value():
             full_column_names = user_database.get_table_column_names(table)
             column_names = user_database.get_specific_column_names_list(full_column_names)
             user_database.add_four_row_to_table(column_names, table, value_1, value_2, value_3, value_4)
-
-        # if value_6: 
-        #     full_column_names = user_database.get_table_column_names(table)
-        #     column_names = user_database.get_specific_column_names_list(full_column_names)
-        #     user_database.add_six_row_to_table(column_names, table, value_1, value_2, value_3, value_4, value_5, value_6)
+        elif value_6 == None:
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_five_row_to_table(column_names, table, value_1, value_2, value_3, value_4, value_5)
+        elif value_6: 
+            full_column_names = user_database.get_table_column_names(table)
+            column_names = user_database.get_specific_column_names_list(full_column_names)
+            user_database.add_six_row_to_table(column_names, table, value_1, value_2, value_3, value_4, value_5, value_6)

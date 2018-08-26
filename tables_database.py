@@ -115,6 +115,12 @@ class Tables_DataBases():
             count += 1
         return only_names_list
 
+    def get_column_data(self, table):
+        query = ('''select * FROM ''' + table )
+        self.cursor.execute(query)
+        rows = self.cursor.fetchall()
+        return rows
+
     ##### The below methods will add new entry's to a table ###
 
     def add_one_row_to_table(self, column_names, table, value_1):

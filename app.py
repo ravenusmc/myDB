@@ -155,6 +155,9 @@ def see_table(table):
     #Getting the column names list for the specific column names 
     only_names_list = user_database.get_specific_column_names_list(column_names)
 
+    #Getting the column data from the table 
+    rows = user_database.get_column_data(table) 
+
     if request.method == 'POST':
         #Getting user entries 
         value_1 = request.form.get('1')
@@ -168,7 +171,7 @@ def see_table(table):
         check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
 
     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict,
-        names_list = only_names_list)
+        names_list = only_names_list, rows = rows)
 
 #This route will sign out the user 
 @app.route('/sign_out')

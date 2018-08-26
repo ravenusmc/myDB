@@ -70,7 +70,6 @@ def signup():
             user_id = db.get_user_id(username)
             database_name = username + str(user_id)
             table.create_database(database_name)
-            print('table created')
 
   return render_template('signup.html')
 
@@ -153,6 +152,9 @@ def see_table(table):
     column_names = user_database.get_table_column_names(table)
     only_names_dict = user_database.get_specific_column_names(column_names)
 
+    #Getting the column names list for the specific column names 
+    only_names_list = user_database.get_specific_column_names_list(column_names)
+
     if request.method == 'POST':
         #Getting user entries 
         value_1 = request.form.get('1')
@@ -162,49 +164,11 @@ def see_table(table):
         value_5 = request.form.get('5')
         value_6 = request.form.get('6')
 
-        print(value_2)
-
         #Adding the data to the right table based on number of columns 
         check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
 
-
-
-    return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
-
-#This route will take the user to the page to add information to a specific table 
-# @app.route('/see_table/<table>', methods=['POST'])
-# def add_information(table):
-#     see_nav_footer = True
-#     #Creating object to connect to database
-#     db = Connection()
-#     check = Check_Value()
-
-    #Getting the username of the user 
-    # username = session['username']
-    # #Getting the user_id based off the username
-    # user_id = db.get_user_id(username)
-    # #Creating the unique ID that will represent each users database 
-    # database_name = username + str(user_id)
-    # #Creating the user database object 
-    # user_database = Tables_DataBases(database_name)
-    # #Getting the column names for the specific table
-    # column_names = user_database.get_table_column_names(table)
-    # only_names_dict = user_database.get_specific_column_names(column_names)
-
-#     #Getting user entries 
-#     value_1 = request.form.get('1')
-#     value_2 = request.form.get('2')
-#     value_3 = request.form.get('3')
-#     value_4 = request.form.get('4')
-#     value_5 = request.form.get('5')
-#     value_6 = request.form.get('6')
-
-#     #Adding the data to the right table based on number of columns 
-#     #check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
-
-#     #Adding the data to the database. 
-#     #user_database.add_table_row(table, value_1, value_2, value_3, value_4, value_5, value_6)
-#     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
+    return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict,
+        names_list = only_names_list)
 
 #This route will sign out the user 
 @app.route('/sign_out')

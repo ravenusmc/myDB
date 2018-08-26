@@ -12,3 +12,19 @@
   justify-content: center;
   align-items: center;
 }
+
+/* CSS for the table */
+#table_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+}

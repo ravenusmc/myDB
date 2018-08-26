@@ -149,7 +149,6 @@ class Tables_DataBases():
         sql = '''insert into ''' + table + ''' 
         (''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ',' + column_names[4] + ',' + column_names[5] + ''') 
             values (%s, %s, %s, %s, %s) '''
-        print(sql)
         self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5))
         self.conn.commit()
 
@@ -158,7 +157,6 @@ class Tables_DataBases():
            ''' + column_names[1] + ',' + column_names[2] + ',' + column_names[3] + ''' 
            ''' + ',' + column_names[4] + ',' + column_names[5] + ',' + column_names[6] + ''')
            values (%s, %s, %s, %s, %s, %s) '''
-        print(sql)
         self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5, value_6))
         self.conn.commit()
 

@@ -14,15 +14,22 @@
       {% for key, value in names.items() %}
         <input placeholder={{ key}} name={{value}} required>
       {% endfor %}
-      <button>Submit</button>
+      <button>Add Data</button>
     </form>
 
   </section>
 
-  <section>
+  <section id='table_section'>
 
     <h2 class='center'>The Table</h2>
 
+    <table>
+      <tr>
+        {% for name in names_list %}
+          <th>{{ name }}</th>
+        {% endfor %}
+      </tr>
+    </table>
 
   </section>
 

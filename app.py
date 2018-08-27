@@ -7,6 +7,7 @@ from users import *
 from check_values import *
 from tables import *
 from tables_database import * 
+from edit_row import *
 
 #Setting up Flask
 app = Flask(__name__)
@@ -191,6 +192,8 @@ def update_task(table, id):
     user_database = Tables_DataBases(database_name)
     #Getting the column names for the specific table
     column_names = user_database.get_table_column_names(table)
+    #Getting the column names list for the specific column names 
+    only_names_list = user_database.get_specific_column_names_list(column_names)
 
     #Getting the column data from the table 
     row = user_database.get_single_row_data(table, id) 
@@ -200,19 +203,33 @@ def update_task(table, id):
     main_list = zip(row, numbers)
     if request.method == 'POST':
         #Getting user entries 
-        value_1 = request.form.get('1')
-        value_2 = request.form.get('2')
-        value_3 = request.form.get('3')
+        value_1 = request.form.get('2')
+        value_2 = request.form.get('3')
+        value_3 = request.form.get('4')
+        value_4 = request.form.get('5')
+        value_5 = request.form.get('6')
+        value_6 = request.form.get('7')
 
-        # print(value_1)
-        # print(value_2)
-        # print(value_3)
+        print(row[1])
 
+        if not value_1:
+            value_1 = row[1]
         if not value_2:
             value_2 = row[2]
-            print(value_2)
         if not value_3:
-            pass
+            value_3 = row[3]
+        if not value_4:
+            value_4 = row[4]
+        if not value_5:
+            value_5 = row[5]
+        if not value_6:
+            value_6 = row[6]
+
+        edited_row = Edit_Row(row[0], value_1, value_2, value_3, value_4, value_5, value_6)
+
+        print(edited_row.row_one)
+
+        user_database.update_row(table, only_names_list, edited_row)
 
     return render_template('form.html', see_nav_footer = see_nav_footer, row = row, main_list = main_list)
 

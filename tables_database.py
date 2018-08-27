@@ -172,7 +172,18 @@ class Tables_DataBases():
         self.cursor.execute(sql, (value_1, value_2, value_3, value_4, value_5, value_6))
         self.conn.commit()
 
+    ##### The below methods will update an entry's to a table ###
 
+    def update_row(self, table, only_names_list, edited_row):
+        sql = '''update ''' + table + ' ' + '''set ''' +  only_names_list[1] + ''' = %s, 
+        ''' + only_names_list[2] + ''' = %s, ''' + only_names_list[3] + ''' = %s, 
+        ''' + only_names_list[4] + ''' = %s, ''' + only_names_list[5] + ''' = %s, 
+        ''' + only_names_list[6] + ''' = %s where id = %s'''
+        self.cursor.execute(sql, (edited_row.row_one, edited_row.row_two, edited_row.row_three,
+            edited_row.row_four, edited_row.row_five, edited_row.row_six, edited_row.id))
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
 
 
 

@@ -133,7 +133,7 @@ def create_table():
     return render_template('create_table.html', see_nav_footer = see_nav_footer)
 
 #This route will take the user to the page to see each table 
-@app.route('/see_table/<table>', methods=['GET', 'POST'])
+@app.route('/see_table/<string:table>', methods=['GET', 'POST'])
 def see_table(table):
     see_nav_footer = True
     #Creating object
@@ -170,8 +170,39 @@ def see_table(table):
         #Adding the data to the right table based on number of columns 
         check.check_values_add_to_table(user_database, table, value_1, value_2, value_3, value_4, value_5, value_6)
 
+        #return redirect(url_for('see_table'))
     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict,
-        names_list = only_names_list, rows = rows)
+        names_list = only_names_list, rows = rows, table = table)
+
+@app.route('/see_table/<string:table>/<int:id>', methods=['GET', 'POST'])
+def update_task(table, id):
+    see_nav_footer = True
+    #Creating objects
+    db = Connection()
+    check = Check_Value()
+
+    #Getting the username of the user 
+    username = session['username']
+    #Getting the user_id based off the username
+    user_id = db.get_user_id(username)
+    #Creating the unique ID that will represent each users database 
+    database_name = username + str(user_id)
+    #Creating the user database object 
+    user_database = Tables_DataBases(database_name)
+    #Getting the column names for the specific table
+    column_names = user_database.get_table_column_names(table)
+
+    #Getting the column data from the table 
+    row = user_database.get_single_row_data(table, id) 
+    
+
+    return render_template('form.html', see_nav_footer = see_nav_footer)
+
+@app.route('/see_table/<string:table>/<int:id>', methods=['GET', 'POST'])
+def delete_task(table, id):
+    see_nav_footer = True
+    return render_template('form.html', see_nav_footer = see_nav_footer)
+
 
 #This route will sign out the user 
 @app.route('/sign_out')

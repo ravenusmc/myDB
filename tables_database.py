@@ -116,10 +116,17 @@ class Tables_DataBases():
         return only_names_list
 
     def get_column_data(self, table):
-        query = ('''select * FROM ''' + table )
+        query = ('''select * from ''' + table )
         self.cursor.execute(query)
         rows = self.cursor.fetchall()
         return rows
+
+    def get_single_row_data(self, table, id):
+        query = ('''select * from ''' + table + ''' where id = %s ''')
+        print(query)
+        self.cursor.execute(query, (id, ))
+        row = self.cursor.fetchone()
+        return row
 
     ##### The below methods will add new entry's to a table ###
 

@@ -38,6 +38,12 @@
           <td>{{ row[4] }}</td>
           <td>{{ row[5] }}</td>
           <td>{{ row[6] }}</td>
+          <form method='POST'>
+            <td><a href="/see_table/{{table}}/{{ row[0] }}">Delete</a></td>
+          </form>
+          <form method='POST'>
+            <td><a href="/see_table/{{table}}/{{ row[0] }}">Edit</a></td>
+          </form>
       </tr>
       {% endfor %}
     </table>
@@ -45,7 +51,5 @@
   </section>
 
 </main>
-
-
 
 {% endblock %}

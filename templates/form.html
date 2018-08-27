@@ -12,6 +12,16 @@
 </header>
 <!-- End of main area -->
 
+<section>
+
+  <form method='POST'>
+    {% for r, number in main_list %}
+      <input placeholder='{{ r }}' name='{{ number }}'>
+    {% endfor %}
+    <button>Submit</button>
+  </form>
+</section>
+
 
 </main>
 <!-- End of main area -->

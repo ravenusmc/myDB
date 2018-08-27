@@ -123,7 +123,6 @@ class Tables_DataBases():
 
     def get_single_row_data(self, table, id):
         query = ('''select * from ''' + table + ''' where id = %s ''')
-        print(query)
         self.cursor.execute(query, (id, ))
         row = self.cursor.fetchone()
         return row

@@ -194,9 +194,27 @@ def update_task(table, id):
 
     #Getting the column data from the table 
     row = user_database.get_single_row_data(table, id) 
-    
+    #This list will be for the name attribute in the html
+    numbers = [1,2,3,4,5,6,7]
+    #Using the zip method here will allow me to loop through two lists at once.
+    main_list = zip(row, numbers)
+    if request.method == 'POST':
+        #Getting user entries 
+        value_1 = request.form.get('1')
+        value_2 = request.form.get('2')
+        value_3 = request.form.get('3')
 
-    return render_template('form.html', see_nav_footer = see_nav_footer)
+        # print(value_1)
+        # print(value_2)
+        # print(value_3)
+
+        if not value_2:
+            value_2 = row[2]
+            print(value_2)
+        if not value_3:
+            pass
+
+    return render_template('form.html', see_nav_footer = see_nav_footer, row = row, main_list = main_list)
 
 @app.route('/see_table/<string:table>/<int:id>', methods=['GET', 'POST'])
 def delete_task(table, id):

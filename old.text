@@ -32,3 +32,10 @@
 #     #Adding the data to the database. 
 #     #user_database.add_table_row(table, value_1, value_2, value_3, value_4, value_5, value_6)
 #     return render_template('see_table.html', see_nav_footer = see_nav_footer, names = only_names_dict)
+
+
+<!--       {% if r[0] %}
+        <input placeholder='{{ r }}' name='{{ r }}' type='hidden'>
+      {% else %}
+        <input placeholder='{{ r }}' name='{{ r }}'>
+      {% endif %} -->

@@ -1,4 +1,4 @@
-#This file will set up the users class 
+#This file will set up the users class which will allow the user to sign in. 
 
 class Users():
 

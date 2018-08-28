@@ -174,7 +174,23 @@ class Tables_DataBases():
 
     ##### The below methods will update an entry's to a table ###
 
-    def update_row(self, table, only_names_list, edited_row):
+    def update_row_one(self, table, only_names_list, edited_row):
+        sql = '''update ''' + table + ' ' + '''set ''' +  only_names_list[1] + ''' = %s
+        where id = %s '''
+        self.cursor.execute(sql, (edited_row.row_one, edited_row.id))
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+
+    def update_row_two(self, table, only_names_list, edited_row):
+        sql = '''update ''' + table + ' ' + '''set ''' +  only_names_list[1] + ''' = %s,
+        ''' + only_names_list[2] + ''' = %s where id = %s '''
+        self.cursor.execute(sql, (edited_row.row_one, edited_row.row_two, edited_row.id))
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+
+    def update_row_six(self, table, only_names_list, edited_row):
         sql = '''update ''' + table + ' ' + '''set ''' +  only_names_list[1] + ''' = %s, 
         ''' + only_names_list[2] + ''' = %s, ''' + only_names_list[3] + ''' = %s, 
         ''' + only_names_list[4] + ''' = %s, ''' + only_names_list[5] + ''' = %s, 

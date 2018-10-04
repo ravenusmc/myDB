@@ -5,7 +5,7 @@ This project is supposed to be a group project made with the help of other stude
 
 The project itself is supposed to allow a user to log in, create a table, be able to enter information into those tables and then see the data that they entered.
 
-This project has been placed on hold for the time being. 
+This project has been placed on hold for the time being. Again, this was a group project that I took on myself that I kept adding to. I'm happy with how much I have done with it and learned a lot working on it. 
 
 
 # Getting started
